@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/n-api', { useMongoClient: true });
-mongoose.Promise = global.Promise;
-
-module.exports = mongoose;
+try {
+    mongoose.connect('mongodb://localhost/n-api', { useNewUrlParser: true });
+    mongoose.Promise = global.Promise;
+} catch(err) {
+    console.log(err);
+}
